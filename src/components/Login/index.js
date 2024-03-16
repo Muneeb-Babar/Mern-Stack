@@ -2,9 +2,12 @@ import './index.css'
 import {useNavigate} from 'react-router-dom'
 import { setLogin } from '../../config/Api'
 import { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import { updateUser } from '../../Store/userSlice'
 
 function Login(){
     const navigate=useNavigate()
+    const dispatch=useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -17,7 +20,7 @@ try{
         return
     }
     if (res) {
-        // Assuming LoginSetup returns a truthy value when login is successful
+        dispatch(updateUser(email))
         navigate('/');
     } else {
         alert('Invalid . Please login again.');

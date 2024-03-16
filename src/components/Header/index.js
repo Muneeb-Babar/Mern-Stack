@@ -3,13 +3,13 @@ import logo from '../../assets/logo.PNG'
 import BasicExample from '../Navbar';
 import './index.css'
 import { useState,useEffect } from 'react';
+import { useSelector } from 'react-redux'
 
 
 
 function Header(){
     const navigate=useNavigate()
-    const [userId, setUserId] = useState('');
-    const [userEmail, setUserEmail] = useState('');
+    const currentUser=useSelector(state=>state.userReducer.user)
 
 return <div>
     <div className='main'>
@@ -25,9 +25,9 @@ return <div>
     <div className='input1'><input type='text' placeholder='Find Mobiles,cars and more...'  size={100}/>
     <span style={{backgroundColor:'#002f34', padding:'7px'}}><i class="fa-solid fa-magnifying-glass" style={{color:'white'}}></i></span>
     <div style={{display:'flex', flexWrap:'wrap'}}>
-    {userId ? (
-            <button className='btn1' onClick={() => navigate('/login')}>
-                {userEmail}
+    {currentUser ? (
+            <button className='btn1' >
+                {currentUser}
             </button>
             ) : (
             <button className='btn1' onClick={() => navigate('/login')}>
