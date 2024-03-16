@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import { setLogin } from '../../config/Api'
 import { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { updateUser } from '../../Store/userSlice'
+import { updateUser,setToken } from '../../Store/userSlice'
 
 function Login(){
     const navigate=useNavigate()
@@ -21,6 +21,8 @@ try{
     }
     if (res) {
         dispatch(updateUser(email))
+        dispatch(setToken({ token: res.token }));
+        alert('Logged in Successgully')
         navigate('/');
     } else {
         alert('Invalid . Please login again.');

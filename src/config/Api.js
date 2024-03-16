@@ -10,6 +10,25 @@ export async function getSingleProduct(adId) {
     return result
 }
 
+export async function postAd({title,brand,description,location,price,token}){
+    const res=await fetch('https://node-js-azure-nine.vercel.app/ads/post',{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json',
+        'Authorization':token
+    },
+    body:JSON.stringify({
+        title,
+        brand,
+        description,
+        location,
+        price
+    })
+})
+const result = await res.json()
+    return result
+}
+
 export async function setSignUp({ email, password, fullname }) {
     try {
         const res = await fetch('https://node-js-azure-nine.vercel.app/user/register', {

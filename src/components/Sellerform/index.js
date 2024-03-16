@@ -1,8 +1,9 @@
 import React from 'react'
 import './index.css'
 import{useNavigate}from 'react-router-dom'
-import { postToDb } from '../../config/firebase'
+import { postAd } from '../../config/Api'
 import { useState,useEffect } from 'react'
+import {useSelector} from 'react-redux'
 
 function Sellerform() {
     const navigate=useNavigate()
@@ -25,22 +26,22 @@ function Sellerform() {
     //     });
     // }, []);
 
+        const token=useSelector(state=>state.userReducer.user)
 
     const onSubmit = async () => {
         try {
-    // if (!title || !description || !brand || !price || !image || !location) {
-    //         alert('Please fill in all fields');
-    //         return;
-    //     }
-        const ad = {
-            title,
-            description,
-            brand,
-            price,
-            image,
-            location
-        };
-        const res = await postToDb(ad);
+    if (!title || !description || !brand || !price || !location) {
+            alert('Please fill in all fields');
+            return;
+        }
+        const formData = new FormData();
+            formData.append('title', title);
+            formData.append('description', description);
+            formData.append('brand', brand);
+            formData.append('price', price);
+            formData.append('image', image);
+            formData.append('location', location);
+        const res = await postAd(formData,token);
         console.log(res);
         if (res) {
             alert('Your Ad Posted Successfully');
