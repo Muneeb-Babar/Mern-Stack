@@ -1,0 +1,20 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+const cartSlice = createSlice({
+    name: 'cart',
+    initialState: {
+        cart: []
+    },
+    reducers: {
+        updateCart: (state,data) => {
+            console.log(data)
+            state.cart.push(data.payload)
+        },
+        removeCart:(state,data)=>{
+            state.cart.splice(data.payload.index, 1);
+        }
+        
+    }
+})
+export const { updateCart,removeCart} = cartSlice.actions
+export default cartSlice

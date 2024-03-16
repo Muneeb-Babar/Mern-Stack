@@ -1,0 +1,38 @@
+.footer3{
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    border-bottom: 1px solid black;
+}
+ul li{
+    list-style-type: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.footer-main{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+    align-items: flex-start;
+}
+.footer-main p{
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.footer4 i{
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.footer-last{
+    width: 100%;
+    background-color: #002f34;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 12px;
+}
+@media screen and (max-width: 600px) {
+
+}

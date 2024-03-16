@@ -1,0 +1,40 @@
+
+.main4{
+    width: 100%;
+    height: 150px;
+    background-image: url('https://images.olx.com.pk/thumbnails/295176473-800x600.webp');
+    background-position: center;
+    background-size: cover;
+}
+.main5{
+    margin-top: 20px;
+    display: flex;
+    gap: 55px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    line-height: 1.2;
+
+}
+.main5 p{
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.main5 img{
+    cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+    .main5{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 15px;
+        align-items: center;
+        
+    }
+    .main4{
+        height: 80px;
+        background-size: 100%;
+        background-position: left;
+        background-repeat: no-repeat;
+    }
+}

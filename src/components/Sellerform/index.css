@@ -1,0 +1,35 @@
+.des1{
+    border: 1px solid black;
+    padding: 10px;        }
+    .des2{
+        border: 1px solid black;
+        padding: 20px;
+    }
+    .des3{
+        border: 1px solid black;
+    padding: 10px; 
+    }
+    .sub{
+        cursor: pointer;
+        margin: 12px;
+        border: 1px solid black;
+    }
+    .des4{
+        border: 1px solid black;
+        padding: 20px;
+    }
+    .des5{
+        border: 1px solid black;
+    padding: 20px; 
+    }
+    .des5 button{
+        background-color: rgb(2, 39, 2);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 16px 22px;
+        font-size: 1.2rem;
+    }
+    #add_cart{
+        text-align: left;
+    }

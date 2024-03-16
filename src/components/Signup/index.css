@@ -1,0 +1,18 @@
+.container1{
+    width: 100%;
+    padding: 20px;
+    box-shadow: 5px 5px 10px gray;
+    margin-top: 11%;
+}
+.btn{
+    background-color: rgb(233, 233, 233);
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.signInput{
+    text-align: center;
+    margin: 10px;
+}
