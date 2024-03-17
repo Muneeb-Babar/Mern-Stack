@@ -57,7 +57,6 @@
 //     }
 
 
-
 export async function getAllProducts() {
     const res = await fetch(`https://node-js-azure-nine.vercel.app/ads`)
     const result = await res.json()
