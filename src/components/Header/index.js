@@ -25,7 +25,7 @@ return <div>
     <div className='input1'><input type='text' placeholder='Find Mobiles,cars and more...'  size={100}/>
     <span style={{backgroundColor:'#002f34', padding:'7px'}}><i class="fa-solid fa-magnifying-glass" style={{color:'white'}}></i></span>
     <div style={{display:'flex', flexWrap:'wrap'}}>
-    {/* {currentUser ? (
+    {currentUser ? (
             <button className='btn1'  onClick={() => navigate('/login')}>
                 {currentUser}
             </button>
@@ -33,10 +33,7 @@ return <div>
             <button className='btn1' onClick={() => navigate('/login')}>
                 LogIn
             </button>
-            )} */}
-            <button className='btn1' onClick={() => navigate('/login')}>
-                LogIn
-            </button>
+            )}
     </div>
     <div onClick={()=>navigate('/selloptions')}><img src={logo} style={{width:'100%', height:'25px', cursor:'pointer',}}/></div>
     </div>

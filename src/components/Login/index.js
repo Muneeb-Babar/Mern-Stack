@@ -22,8 +22,13 @@ try{
     if (res) {
         dispatch(updateUser(email))
         dispatch(setToken({ token: res.token }));
+        if(res.message !== 'Logged in Successgully'){
+            alert(res.message)
+            navigate('/');
+            return
+        }
         alert('Logged in Successgully')
-        navigate('/');
+        
     } else {
         alert('Invalid . Please login again.');
     }

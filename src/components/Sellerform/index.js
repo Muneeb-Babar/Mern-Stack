@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 import{useNavigate}from 'react-router-dom'
 import { postAd } from '../../config/Api'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import {useSelector} from 'react-redux'
 
 function Sellerform() {
@@ -11,22 +11,11 @@ function Sellerform() {
     const[description,setDescription]=useState('')
     const[brand,setBrand]=useState('')
     const[price,setPrice]=useState('')
-    const [image,setImage]=useState()
-    // const [img1 ,setimg1] = useState()
-    // const [img2 ,setimg2] = useState()
-    // const [img3 ,setimg3] = useState()
-    // const [img4 ,setimg4] = useState()
-    // const allImages = [img1,img2,img3,img4]
+    const [image,setImage]=useState(null)
     const[location,setLocation]=useState('')
 
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         const { latitude, longitude } = position.coords;
-    //         setLocation(`${latitude}, ${longitude}`);
-    //     });
-    // }, []);
-
-        const token=useSelector(state=>state.userReducer.user)
+    const userToken=useSelector(state=>state.userReducer.token)
+    console.log("Token:", userToken);
 
     const onSubmit = async () => {
         try {
@@ -34,18 +23,25 @@ function Sellerform() {
             alert('Please fill in all fields');
             return;
         }
-        const formData = new FormData();
-            formData.append('title', title);
-            formData.append('description', description);
-            formData.append('brand', brand);
-            formData.append('price', price);
-            formData.append('image', image);
-            formData.append('location', location);
-        const res = await postAd(formData,token);
+
+        const ad = {
+            title,
+            description,
+            brand,
+            price,
+            image,
+            location,
+            userToken
+        };
+        console.log("Ad data:", ad);
+        const res = await postAd(ad);
         console.log(res);
         if (res) {
-            alert('Your Ad Posted Successfully');
-            navigate('/');
+            if(res.message !== 'Your Ad Posted Successfully'){
+                alert(res.message)
+                navigate('/');
+                return
+            }
         } else {
             alert('Failed to post your Ad. Please try again later.');
         }
@@ -68,10 +64,6 @@ alert('An error occurred while posting your Ad. Please try again later.');
     const handleImage=(e)=>{
         setImage(e.target.files[0])
     }
-    // const handleImage = (e) => {
-    //     const files = Array.from(e.target.files);
-    //     setImage(files);
-    // };
     const handleLocation=(e)=>{
         setLocation(e.target.value)
     }

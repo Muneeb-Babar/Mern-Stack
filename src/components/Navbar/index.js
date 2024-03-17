@@ -3,8 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './index.css'
 import{useNavigate}from'react-router-dom'
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../config/firebase'; 
 import { useState,useEffect } from 'react';
 
 function BasicExample() {
@@ -12,20 +10,20 @@ function BasicExample() {
     const [userId, setUserId] = useState('');
     const [userEmail, setUserEmail] = useState('');
 
-    useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in.
-        setUserId(user.uid);
-        setUserEmail(user.email);
-        } else {
-          // No user is signed in.
-        setUserId('');
-        setUserEmail('');
-        }
-    });
-    return () => unsubscribe();
-    }, []);
+    // useEffect(() => {
+    // const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       // User is signed in.
+    //     setUserId(user.uid);
+    //     setUserEmail(user.email);
+    //     } else {
+    //       // No user is signed in.
+    //     setUserId('');
+    //     setUserEmail('');
+    //     }
+    // });
+    // return () => unsubscribe();
+    // }, []);
 return (
     <div className="hide">
         <Navbar expand="lg"   style={{textAlign:'left'}}>

@@ -6,10 +6,7 @@ import SignUp from "../components/Signup";
 import Login from "../components/Login";
 import Selloptions from "../components/Selloptions";
 import Sellerform from "../components/Sellerform";
-import GetMyAd from "../MyAds";
 import Header from "../components/Header";
-import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from "./firebase";
 import { useState,useEffect } from "react";
 import Forget from "../components/Forget";
 import Cart from "../views/CartDetail";
@@ -50,10 +47,6 @@ const router = createBrowserRouter([
         element: <Sellerform/>
     },
     {
-        path: '/myads',
-        element: <GetMyAd/>
-    },
-    {
         path: '/forgetpassword',
         element: <Forget/>
     },
@@ -61,28 +54,28 @@ const router = createBrowserRouter([
 ]);
 
 function Layout(){
-    const[user,setUser]=useState()
-    const navigate=useNavigate()
+    // const[user,setUser]=useState()
+    // const navigate=useNavigate()
 
-    useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
-            setUser(user)
-        });
-    }, [])
+    // useEffect(()=>{
+    //     onAuthStateChanged(auth, (user) => {
+    //         setUser(user)
+    //     });
+    // }, [])
 
-    useEffect(()=>{
-        const path=window.location.pathname
-        if(user){
-            if(path==='/login'){
-                navigate('/')
-            }
-            else{
-                if(path==='/selloptions'){
-                    navigate('/login')
-                }
-            }
-        }
-    },[window.location.pathname,user])
+    // useEffect(()=>{
+    //     const path=window.location.pathname
+    //     if(user){
+    //         if(path==='/login'){
+    //             navigate('/')
+    //         }
+    //         else{
+    //             if(path==='/selloptions'){
+    //                 navigate('/login')
+    //             }
+    //         }
+    //     }
+    // },[window.location.pathname,user])
 
     return <div>
         <Header/>

@@ -135,6 +135,4 @@ export async function checkPassword(email){
     console.log(res)
 
 }
-export{
-    auth
-}
+export {auth}
