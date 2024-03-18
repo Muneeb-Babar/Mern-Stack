@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import{useNavigate}from 'react-router-dom'
-import { postAd } from '../../config/Api'
+import { postAd } from '../../config/dumfirebase'
 import { useState } from 'react'
 import {useSelector} from 'react-redux'
 
@@ -11,40 +11,26 @@ function Sellerform() {
     const[description,setDescription]=useState('')
     const[brand,setBrand]=useState('')
     const[price,setPrice]=useState('')
-    const [image,setImage]=useState(null)
+    const [image,setImage]=useState()
     const[location,setLocation]=useState('')
 
-    const userToken=useSelector(state=>state.userReducer.token)
+    const userToken=useSelector(state=>state.tokenReducer.tokens)
     console.log("Token:", userToken);
 
     const onSubmit = async () => {
         try {
-    if (!title || !description || !brand || !price || !location) {
+    if (!title || !description || !brand || !price || !location ) {
             alert('Please fill in all fields');
             return;
         }
 
-        const ad = {
-            title,
-            description,
-            brand,
-            price,
-            image,
-            location,
-            userToken
-        };
-        console.log("Ad data:", ad);
-        const res = await postAd(ad);
+        const res = await postAd(userToken,{ title,brand, price,location, description, image });
         console.log(res);
         if (res) {
-            if(res.message !== 'Your Ad Posted Successfully'){
                 alert(res.message)
                 navigate('/');
                 return
-            }
-        } else {
-            alert('Failed to post your Ad. Please try again later.');
-        }
+        } 
         } catch (error) {
 alert('An error occurred while posting your Ad. Please try again later.');
         }
@@ -88,7 +74,7 @@ return (
     <div className="container des3">
         <h5>SET A PRICE</h5>
         <p>Price</p>
-        <input type="text" style={{padding:'10px',width:'100%'}} placeholder="Rs" required onChange={handlePrice}/>
+        <input type="number" style={{padding:'10px',width:'100%'}} placeholder="Rs" required onChange={handlePrice}/>
     </div>
     <div className="container des4">
         <h5>UPLOAD UP TO 4 PHOTOS</h5>
@@ -106,7 +92,7 @@ return (
         <input type="text"  style={{padding:'10px',width:'100%'}} onChange={handleLocation}/>
 </div>
 <div className="container des5">
-    <button onClick={onSubmit}>Post now</button>
+    <button type='button' onClick={onSubmit}>Post now</button>
 </div>
 </div>
 </div>

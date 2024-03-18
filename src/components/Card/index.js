@@ -32,9 +32,10 @@ if(!ads){
     return <div>
         <div className='card1 container'>
         {ads.map(item=> {
-            const{title,description,_id,price}=item
+            const{title,description,_id,price,image}=item
             return <div >
             <Card style={{ width: '18rem', height:'21rem',border:'1px solid rgb(197, 197, 197)'}} onClick={()=>navigate(`detail/${_id}`)}>
+        <img src={image} width='100%' height={180}/>
         <Card.Body>
             <Card.Title>{title}</Card.Title>
             <div style={{fontWeight:'500',fontSize:'1.2rem'}}>price :{price}$</div>

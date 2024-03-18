@@ -59,11 +59,11 @@ if (!product) {
             <div className='first1'>
                 <h1>Price{product.singleProduct.price}$</h1>
                 <h3>{product.singleProduct.title}</h3>
-                {/* <i class="fa-solid fa-location-dot"></i> <label>{location}</label> */}
+                <i class="fa-solid fa-location-dot"></i> <label>{product.singleProduct.location}</label>
             </div>
             <div className='first2'>
                 <h2>Details</h2>
-                <h6>Brand : {product.singleProduct.title}</h6>
+                <h6>Brand : {product.singleProduct.brand}</h6>
                 <h6>Price : {product.singleProduct.price}$</h6>
             </div>
             <div className='first2'>
@@ -87,7 +87,7 @@ if (!product) {
                 </div>
                 <div className='second2'>
                     <h2>Location</h2>
-                    {/* <i class="fa-solid fa-location-dot"></i> <label>{location}</label> */}
+                    <i class="fa-solid fa-location-dot"></i> <label>{product.singleProduct.location}</label>
                 </div>
                 <div>
                     {/* <MapComponent address={address}/> */}
