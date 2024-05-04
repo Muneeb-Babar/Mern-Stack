@@ -20,14 +20,14 @@ const handleRemove=(index)=>{
 return (
     <div  className='container' style={{display:'flex',justifyContent:'space-evenly',gap:'20px' }}>
         {mainCart.map((item,index) => {
-        const {title,price}=item
+        // const {title,price,image}=item
             return <div>
     <div>
     <Card style={{ width: '15rem', height:'18rem' }}>
     <Card.Body>
-    {/* <img src={image} width={'120px'}/> */}
-        <Card.Title>{title}</Card.Title>
-        <Card.Title>Rs-{price}$</Card.Title>
+    <img src={item.singleProduct.image} width={'120px'}/>
+        <Card.Title>{item.singleProduct.title}</Card.Title>
+        <Card.Title>Rs-{item.singleProduct.price}$</Card.Title>
         <Card.Text>
         </Card.Text>
         <button style={{border:'none',padding:'6px 14px',borderRadius:'20px'}} onClick={()=>handleRemove(index)}>Remove Cart</button>

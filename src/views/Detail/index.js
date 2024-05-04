@@ -71,7 +71,7 @@ if (!product) {
                 <p>{product.singleProduct.description}</p>
                 <div style={{display:'flex',justifyContent:'space-between'}}>
                     <div><button style={{border:'none',padding:'6px 14px',borderRadius:'20px'}} onClick={handleCart}>Add to cart</button></div>
-                    <div style={{cursor:'pointer'}} onClick={()=>navigate('/cart')}><img width={30} src='https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png'/></div>
+                    <div style={{cursor:'pointer'}} onClick={()=>navigate('/cart')}><img width={30} src='https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png'/>{product.length}</div>
                 </div>
             </div>
             </div>
